@@ -2,13 +2,14 @@ import Dolph from '@dolphjs/core';
 import helmet from 'helmet';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
-import { ENV, PORT } from '@/config';
-import DemoAppRouter from '@/routes/demo.route';
+import xss from 'xss-clean';
+import { ENV, PORT, configs } from '@/config';
+import routes from './routes';
 
 dotenv.config({});
 
-const dolph = new Dolph([new DemoAppRouter()], PORT, ENV,  null , [
-	helmet(),
-  cors({'origin': '*'})
-]);
+const middlewares = [helmet(), cors({ origin: '*' }), xss()];
+const mongo = { options: configs.mongoose.options, url: configs.mongoose.url };
+
+const dolph = new Dolph(routes, PORT, ENV, mongo, middlewares);
 dolph.listen();
