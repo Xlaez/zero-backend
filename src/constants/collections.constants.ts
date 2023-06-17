@@ -5,4 +5,5 @@ export default {
   products: 'products',
   carts: 'carts',
   orders: 'orders',
+  transactions: 'transactions',
 };
