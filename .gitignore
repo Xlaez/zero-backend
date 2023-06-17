@@ -1,0 +1,11 @@
+node_modules 
+yarn-error.log
+yarn.lock
+package-lock.json
+.env
+coverage
+.vscode
+.idea
+pkg
+assets
+package-lock.json
