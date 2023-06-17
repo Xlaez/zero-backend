@@ -5,7 +5,7 @@ services:
     image: node:alpine
     ports:
       - 6300:6300
-    volumes:
+    # volumes:
     networks:
       - zero-network
   mongodb:
@@ -27,5 +27,5 @@ volumes:
     driver: local
 
 networks:
-  - zero-network:
+  zero-network:
     driver: bridge
