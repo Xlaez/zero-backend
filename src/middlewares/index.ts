@@ -1,4 +1,4 @@
 import validate from './validate.middlewares';
-import AuthorizeAcc from './authorize.middlewares';
+import { validateAccount } from './authorize.middlewares';
 import appRateLimiter from './rateLimiter.middlewares';
-export { validate as validateReq, AuthorizeAcc, appRateLimiter as rateLimiter };
+export { validate as validateReq, validateAccount, appRateLimiter as rateLimiter };

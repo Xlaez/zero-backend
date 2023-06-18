@@ -136,7 +136,4 @@ Schema.pre('save', async function (next: NextFunction) {
   next();
 });
 
-export const Accounts: Pagination<IAccounts> = mongoose.model<IAccounts, Pagination<IAccounts>>(
-  colConstants.accounts,
-  Schema
-);
+export const Accounts: Pagination<IAccount> = mongoose.model<IAccount, Pagination<IAccount>>(colConstants.accounts, Schema);

@@ -2,13 +2,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es2017",
-    "lib": [
-      "es2017",
-      "esnext.asynciterable"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "lib": ["es2017", "esnext.asynciterable"],
+    "typeRoots": ["node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -26,66 +21,26 @@
     "importHelpers": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": [
-        "*"
-      ],
-      "@config/*": [
-        "config/*"
-      ],
-      "@controllers/*": [
-        "controllers/*"
-      ],
-      "@database/*": [
-        "database/*"
-      ],
-      "@dtos/*": [
-        "dtos/*"
-      ],
-      "@exceptions/*": [
-        "exceptions/*"
-      ],
-      "@interfaces/*": [
-        "interfaces/*"
-      ],
-      "@middlewares/*": [
-        "middlewares/*"
-      ],
-      "@models/*": [
-        "models/*"
-      ],
-      "@routes/*": [
-        "routes/*"
-      ],
-      "@services/*": [
-        "services/*"
-      ],
-      "@util/*": [
-        "util/*"
-      ],
-      "@lib/*": [
-        "lib/*"
-      ],
-      "@servers/*": [
-        "servers/*"
-      ],
-      "@constants/*": [
-        "constants/*"
-      ],
-      "@validations/*": [
-        "validations/*"
-      ]
+      "@/*": ["*"],
+      "@config/*": ["config/*"],
+      "@controllers/*": ["controllers/*"],
+      "@database/*": ["database/*"],
+      "@dtos/*": ["dtos/*"],
+      "@exceptions/*": ["exceptions/*"],
+      "@interfaces/*": ["interfaces/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@models/*": ["models/*"],
+      "@routes/*": ["routes/*"],
+      "@services/*": ["services/*"],
+      "@util/*": ["util/*"],
+      "@lib/*": ["lib/*"],
+      "@servers/*": ["servers/*"],
+      "@constants/*": ["constants/*"],
+      "@validations/*": ["validations/*"]
     }
   },
-  "include": [
-    "src/",
-    ".env"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/http",
-    "src/logs",
-    "src/tests"
-  ],
+  "include": ["src/", ".env"],
+  "exclude": ["node_modules", "src/http", "src/logs", "src/tests"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
