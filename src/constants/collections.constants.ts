@@ -6,4 +6,5 @@ export default {
   carts: 'carts',
   orders: 'orders',
   transactions: 'transactions',
+  tokens: 'tokens',
 };
