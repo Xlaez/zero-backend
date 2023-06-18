@@ -1,5 +1,5 @@
-import AuthRouter from './auth.routes';
+import AccountsRouter from './accounts.routes';
 
-const routes = [new AuthRouter()];
+const routes = [new AccountsRouter()];
 
 export default routes;

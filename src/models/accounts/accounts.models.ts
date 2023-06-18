@@ -5,7 +5,7 @@ import { hash, verify } from 'argon2';
 import { NextFunction } from 'express';
 import { colConstants } from '@/constants';
 
-export interface IAccounts extends mongoose.Document {
+export interface IAccount extends mongoose.Document {
   name: string;
   email: string;
   password: string;

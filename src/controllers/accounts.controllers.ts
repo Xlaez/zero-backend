@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
 import { AppRes, catchAsync, httpStatus } from '@dolphjs/core';
+import { AccountService } from '@/services';
 
-class AuthController {
+class AccountsController {
+  protected service: AccountService = new AccountService();
+
   public sendGreeting = catchAsync(async (req: Request, res: Response) => {
     const message =
       'Welcome to the API end-point for the Dolph app. If you have problems getting started, visit https://github.com/dolphjs/core#README.MD';
@@ -9,4 +12,4 @@ class AuthController {
   });
 }
 
-export default AuthController;
+export default AccountsController;

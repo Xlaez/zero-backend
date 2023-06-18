@@ -13,6 +13,9 @@ const envSchema = Joi.object()
     CLOUDINARY_SECRET_KEY: Joi.string().required().description('cloudinary secret key'),
     JWT_SECRET: Joi.string().default('00000000000000000-JWT-00000000000000000-SECRET').description('JWT secret key'),
     JWT_ACCESS_EXPIRATION_MINUTES: Joi.number().default(30000).description('minutes after which access tokens expire'),
+    APP_EMAIL: Joi.string().description('applications email'),
+    SMTP_PASSWORD: Joi.string().description('application smtp password'),
+    SMTP_MAIL: Joi.string().description('applications smtp gmail'),
   })
   .unknown();
 
@@ -40,6 +43,13 @@ const configs = {
   jwt: {
     secret: envVars.JWT_SECRET,
     duration: envVars.JWT_ACCESS_EXPIRATION_MINUTES,
+  },
+  smtp: {
+    mail: envVars.SMTP_MAIL,
+    pass: envVars.SMTP_PASSWORD,
+  },
+  apps: {
+    mail: envVars.APP_EMAIL,
   },
 };
 

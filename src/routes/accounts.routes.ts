@@ -1,12 +1,11 @@
-import AuthController from '@/controllers/auth.controllers';
-import { Routes } from '@/interfaces/routes.interfaces';
+import AccountsController from '@/controllers/accounts.controllers';
 import { Router } from '@dolphjs/core';
 
-class AuthRouter {
+class AccountsRouter {
   public path?: string = '/api/v1/auth';
   public router = Router();
 
-  protected controller: AuthController = new AuthController();
+  protected controller: AccountsController = new AccountsController();
   constructor() {
     this.Routes();
   }
@@ -14,4 +13,4 @@ class AuthRouter {
     this.router.get(`${this.path}`, this.controller.sendGreeting);
   }
 }
-export default AuthRouter;
+export default AccountsRouter;
