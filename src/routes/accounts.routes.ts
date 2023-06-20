@@ -10,7 +10,7 @@ class AccountsRouter {
     this.Routes();
   }
   private Routes() {
-    this.router.get(`${this.path}`, this.controller.sendGreeting);
+    this.router.post(`${this.path}/register`, this.controller.createAccount);
   }
 }
 export default AccountsRouter;

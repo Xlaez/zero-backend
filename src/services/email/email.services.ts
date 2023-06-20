@@ -17,26 +17,26 @@ const transport = createTransport({
  */
 
 class SendMail {
-  private static to: string;
-  private static type: string;
-  private static payload: { name: string; code: string; link: string };
-  private static html: string;
+  private to: string;
+  private type: string;
+  private payload: { name: string; code: string; link: string };
+  private html: string;
   constructor(to: string, payload: { name: string; code: string; link: string }, type: string) {
-    SendMail.to = to;
-    SendMail.payload = payload;
-    SendMail.type = type;
+    this.to = to;
+    this.payload = payload;
+    this.type = type;
   }
 
-  static go = async () => {
-    switch (SendMail.type) {
+  go = async () => {
+    switch (this.type) {
       case emailTypesServices.verifyMail:
-        SendMail.html = verifyEmailTemplate({ name: this.payload.name, code: this.payload.code, link: this.payload.link });
+        this.html = verifyEmailTemplate({ name: this.payload.name, code: this.payload.code, link: this.payload.link });
         break;
       case emailTypesServices.resetPassword:
-        SendMail.html = verifyEmailTemplate({ name: this.payload.name, code: this.payload.code, link: this.payload.link });
+        this.html = verifyEmailTemplate({ name: this.payload.name, code: this.payload.code, link: this.payload.link });
         break;
       case emailTypesServices.updateEmail:
-        SendMail.html = verifyEmailTemplate({ name: this.payload.name, code: this.payload.code, link: this.payload.link });
+        this.html = verifyEmailTemplate({ name: this.payload.name, code: this.payload.code, link: this.payload.link });
         break;
     }
     const obj = { from: configs.apps.mail, to: this.to, subject: this.type, html: this.html };
