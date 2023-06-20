@@ -4,6 +4,7 @@ import { toJSON } from '../plugins';
 import { hash, verify } from 'argon2';
 import { NextFunction } from 'express';
 import { colConstants } from '@/constants';
+import { UniqueCodes } from '@/libs';
 
 export interface IAccount extends mongoose.Document {
   name: string;
@@ -55,7 +56,15 @@ const Schema = new mongoose.Schema(
       type: String,
       trim: true,
       required: false,
+      minlength: 7,
       private: true, // a marker so the toJSON plugin would omit it
+      validate(value: string) {
+        if (value !== 'none') {
+          if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
+            throw new Error('Password must contain at least one letter and one number');
+          }
+        }
+      },
     },
     img: {
       type: String,
@@ -131,6 +140,8 @@ Schema.methods.doesPasswordMatch = async function (password: string): Promise<bo
 };
 
 Schema.pre('save', async function (next: NextFunction) {
+  const tempHash = hash(`${this.name}-${UniqueCodes.fiveDigitsNum()}`);
+  this.accountHash = `Ze-${tempHash}-ro`;
   if (this.authType !== 'login') return next();
   if (this.isModified('password')) this.password = await hash(this.password);
   next();
